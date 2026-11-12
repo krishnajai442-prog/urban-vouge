@@ -105,7 +105,7 @@ export default async function AdminProductsPage({
             </thead>
             <tbody className="divide-y divide-hairline">
               {filtered.map((p) => {
-                const image = p.images[0]?.url ?? "https://picsum.photos/seed/vk/200/200";
+               const image = p.images[0]?.url ?? "/placeholder-banner-bg.jpg";
                 return (
                   <tr key={p.id} className="hover:bg-canvas/50">
                     <td className="px-4 py-3">

@@ -98,10 +98,7 @@ export const PRICE_BUCKETS = [
 
 function imageFromProduct(p: ProductRow): string {
   const primary = p.images.find((i) => i.isPrimary) ?? p.images[0];
-  return (
-    primary?.url ??
-    `https://picsum.photos/seed/${encodeURIComponent(p.slug)}/900/900`
-  );
+ return primary?.url ?? "/placeholder-banner-bg.jpg";
 }
 
 export function toCards(products: ProductRow[]): CardVM[] {

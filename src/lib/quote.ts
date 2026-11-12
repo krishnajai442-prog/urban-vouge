@@ -81,7 +81,7 @@ const GST_RATE = 18;
 
 function imageFromProduct(images: { url: string; isPrimary: boolean }[], slug: string) {
   const primary = images.find((i) => i.isPrimary) ?? images[0];
-  return primary?.url ?? `https://picsum.photos/seed/${encodeURIComponent(slug)}/900/900`;
+  return primary?.url ?? "/placeholder-banner-bg.jpg";
 }
 
 export async function computeQuote(input: QuoteInput): Promise<Quote> {

@@ -11,7 +11,7 @@ export function Gallery({ images, badge }: { images: { url: string; alt: string 
   const [zoom, setZoom] = useState(false);
   const [origin, setOrigin] = useState({ x: 50, y: 50 });
   const frame = useRef<HTMLDivElement>(null);
-  const list = images.length ? images : [{ url: "https://picsum.photos/seed/Urban Vogue/900/900", alt: "Product" }];
+    const list = images.length ? images : [{ url: "/placeholder-banner-bg.jpg", alt: "Product" }];
   const current = list[Math.min(index, list.length - 1)]!;
 
   function onMove(e: React.MouseEvent) {
