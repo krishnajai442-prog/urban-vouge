@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display:
+    var(--font-space-grotesk), var(--font-inter), ui-sans-serif, system-ui,
+    sans-serif;
+
+  /* ── Urban Vogue: warm ivory canvas, champagne-gold accent ── */
+  --color-canvas: #faf8f5;
+  --color-paper: #ffffff;
+  --color-hairline: #e8e0d4;
+
+  --color-ink-950: #0d0d0d;
+  --color-ink-900: #1a1a2e;
+  --color-ink-700: #2c3e50;
+  --color-ink-400: #6b7280;
+  --color-ink-300: #9ca3af;
+
+  /* "electric" → champagne-gold family */
+  --color-electric-50: #faf5eb;
+  --color-electric-100: #f0e6d0;
+  --color-electric-200: #e0cfa8;
+  --color-electric-300: #d4b87a;
+  --color-electric-400: #c9a96e;
+  --color-electric-500: #b8963f;
+  --color-electric-600: #a67c00;
+  --color-electric-700: #8b6914;
+
+  --color-violet-accent: #2c3e50;
+
+  --color-mint-500: #2d6a4f;
+  --color-mint-600: #1b4332;
+  --color-flame-500: #c0392b;
+  --color-flame-600: #a93226;
+  --color-amber-offer: #d4a017;
+  --color-orange-deal: #c0792a;
+
+  --shadow-soft:
+    0 1px 2px rgb(26 26 46 / 0.04), 0 8px 24px rgb(26 26 46 / 0.06);
+  --shadow-lift: 0 12px 32px rgb(26 26 46 / 0.1);
+  --shadow-glow:
+    0 0 0 1px rgb(201 169 110 / 0.1), 0 12px 36px rgb(201 169 110 / 0.16);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-hairline);
+  }
+  html {
+    scroll-behavior: smooth;
+    background: #faf8f5;
+    min-height: 100%;
+  }
+  body {
+    background: #faf8f5;
+    color: var(--color-ink-900);
+    min-height: 100vh;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--color-electric-400) 22%, transparent);
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 90rem;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-x {
+      padding-inline: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-x {
+      padding-inline: 1.5rem;
+    }
+  }
+  .card {
+    background: var(--color-paper);
+    border: 1px solid var(--color-hairline);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-soft);
+  }
+  .glass {
+    background: rgb(255 255 255 / 0.86);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgb(232 224 212 / 0.9);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .flipkart-card {
+    @apply bg-white rounded-sm shadow-sm hover:shadow-lg transition-shadow duration-200;
+  }
+}
+
+@keyframes ticker-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
