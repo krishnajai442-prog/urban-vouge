@@ -28,8 +28,8 @@ function slugify(input: string): string {
     .replace(/-+/g, "-");
 }
 
-function img(seed: string, size = 900): string {
-  return `https://picsum.photos/seed/${encodeURIComponent(seed)}/${size}/${size}`;
+function img(seed: string, _size = 900): string {
+  return `/img/ph?text=${encodeURIComponent(seed.replace(/[-_]+/g, " ").slice(0, 60))}`;
 }
 
 function discount(mrp: number, sale: number): number {
@@ -895,8 +895,8 @@ async function seedCatalog() {
   for (const b of brands) {
     const row = await prisma.brand.upsert({
       where: { slug: b.slug },
-      update: { name: b.name, countryCode: b.countryCode, logoUrl: `https://picsum.photos/seed/${b.slug}-logo/200/200`, active: true },
-      create: { slug: b.slug, name: b.name, countryCode: b.countryCode, logoUrl: `https://picsum.photos/seed/${b.slug}-logo/200/200`, active: true },
+      update: { name: b.name, countryCode: b.countryCode, logoUrl: `/img/ph?text=${encodeURIComponent(b.name)}`, active: true },
+      create: { slug: b.slug, name: b.name, countryCode: b.countryCode, logoUrl: `/img/ph?text=${encodeURIComponent(b.name)}`, active: true },
     });
     brandMap.set(b.slug, row.id);
   }

@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/Toaster";
 import { siteUrl } from "@/lib/utils";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { HideOnProduct } from "@/components/HideOnProduct";
+import { ImageGuard } from "@/components/ImageGuard";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" });
@@ -64,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${space.variable}`} suppressHydrationWarning>
       <body className="min-h-dvh bg-[#faf8f5] text-ink-900 antialiased">
+        <ImageGuard />
         <CartProvider>
           <Header />
           <main className="min-h-[60vh] pb-20 md:pb-0">{children}</main>
